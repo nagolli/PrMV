@@ -1,0 +1,11 @@
+Medica
+01- Curar cuerpo (veneno, ceguera, quemazon) 	//Cualquiera
+11- Curar mente (ira, seducir, confusion)	//Cualquiera salvo ella misma
+06- Curar alma (silencio, debuffos, sueño)	//Cualquiera
+21- Curar c en area 			//Todos salvo ella misma
+46- Curar m en area			//Todos salvo ella misma
+36- Curar a en area 			//Todos salvo ella misma
+26- Curar todo a uno (sin efectos adicionales)
+31- Efecto adicional a todo (+vida,adelantar 2 turnos,invertir debuffos(yanfly Topsy-Turvy))
+16- Medicamentos (Salvaguarda)
+41- Salvaguarda pasiva

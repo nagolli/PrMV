@@ -253,6 +253,14 @@ Yanfly.Augment.version = 1.09;
  *
  * ---
  *
+ * Add Conditional Skill: x, y
+ * - Add skill 'x' if 'y' on the item. You can't use the name of the Skill.
+ * This will make the skill temporarily usable by the actor as long as the item
+ * is equipped with the augment on it.
+ * Done by Nagolli.
+ *
+ * ---
+ *
  * Add Skill Type: x
  * Add SType: x
  * Remove Skill Type: x
@@ -871,6 +879,14 @@ ItemManager.processAugmentEffect = function(line, mainItem, effectItem, slot) {
     var text = String(RegExp.$1).toUpperCase().trim();
     return this.applyAugmentSkill(mainItem, text, false);
   }
+  
+  // CONDITIONAL ADD SKILL: x
+  if (line.match(/ADD CONDITIONAL SKILL:[ ](.*)/i)) {
+    var text = String(RegExp.$1).toUpperCase().trim();
+																					console.log("Lectura correcta");
+    return this.applyConditionalAugmentSkill(mainItem, text, true);
+  }
+  
   // ADD SKILL TYPE: x
   if (line.match(/ADD SKILL TYPE:[ ](.*)/i)) {
     var text = String(RegExp.$1).toUpperCase().trim();
@@ -997,6 +1013,19 @@ ItemManager.addTraitToItem = function(mainItem, code, dataId, value) {
       value: value
     }
     mainItem.traits.push(trait);
+};
+
+ItemManager.checkItemTrait = function(mainItem, code, dataId) {
+																						console.log(code+","+dataId);
+	for(x=0;x<mainItem.traits.length;x++)
+	{
+																						console.log(mainItem.traits[x].code+","+mainItem.traits[x].dataId);
+		if(mainItem.traits[x].code==code&&mainItem.traits[x].dataId==dataId)
+		{	
+			return true
+		}
+	}
+	return false;
 };
 
 ItemManager.deleteTraitFromItem = function(mainItem, code, dataId, value) {
@@ -1142,6 +1171,23 @@ ItemManager.applyAugmentSkill = function(mainItem, text, add) {
     this.adjustItemTrait(mainItem, code, id, 1, add);
 };
 
+ItemManager.applyConditionalAugmentSkill = function(mainItem, text, add) {
+    if (text.match(/(\d+),[ ](\d+)/i)) {
+      var id = parseInt(RegExp.$1);
+	  var idCond = parseInt(RegExp.$2); 
+    } else {
+      if (!id || !idCond) return;
+    }
+	//Si personaje tiene idCond
+	var code = Game_BattlerBase.TRAIT_SKILL_ADD;
+																					console.log("¿Aplicar mejora?");
+	if(this.checkItemTrait(mainItem, code, idCond))
+	{	
+		this.adjustItemTrait(mainItem, code, id, 1, add);
+																					console.log("Aplicada");
+	}
+};
+
 ItemManager.applyAugmentSkillType = function(mainItem, text, add) {
     if (text.match(/(\d+)/i)) {
       var id = parseInt(RegExp.$1);
@@ -1150,7 +1196,13 @@ ItemManager.applyAugmentSkillType = function(mainItem, text, add) {
       if (!id) return;
     }
     var code = Game_BattlerBase.TRAIT_STYPE_ADD;
-    this.adjustItemTrait(mainItem, code, id, 1, add);
+	//NUEVO
+	if(!this.checkItemTrait(mainItem, code, id))
+	{	
+		this.adjustItemTrait(mainItem, code, id, 1, add);
+																					console.log("Aplicada");
+	}
+    //this.adjustItemTrait(mainItem, code, id, 1, add);
 };
 
 ItemManager.applyAugmentStateRate = function(mainItem, text, add) {

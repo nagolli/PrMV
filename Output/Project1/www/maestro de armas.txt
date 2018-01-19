@@ -1,12 +1,13 @@
 Maestro de armas //Solo comienza con hacha, escudo y armadura ligera, y armadura general
 
+
+- Cura sueño a todos los aliados
+- Ambidextrismo (Menu)
 - Reparar arma (Menu, gasta 100 tp) <Target All Weapon Durability: +50>
 - Reparar armadura (Menu, gasta 100 tp) <Target All Armor Durability: +50>
-- Usar magia (vara, armadura magica, mayal) //Orbe
-- Armas a distancia (arco, ballesta, pistola) //Carcaj
-- Armas exoticas (dagas parejas, garra, latigo, daga)
-- Equipo de caballero (Armadura pesada, escudo grande, lanza, espada) 
-- Cura sueño a todos los aliados
+- Usar magia (Pasiva: vara, armadura magica, mayal) //Orbe
+- Armas a distancia (Pasiva: arco, ballesta, pistola) //Carcaj			95,94,93
+- Armas exoticas (Pasiva: dagas parejas, garra, latigo, daga)			97,96,91,87
+- Equipo de caballero (Pasiva: Armadura pesada, escudo grande, lanza, espada) 	202,100,88,204
 - Resistencia a ceguera (pasiva)
 - Inmunidad a sueño (pasiva)
-- Ambidextrismo (Menu)

@@ -6,6 +6,6 @@ Medica
 46- Curar m en area			//Todos salvo ella misma
 36- Curar a en area 			//Todos salvo ella misma
 26- Curar todo a uno (sin efectos adicionales)
-31- Efecto adicional a todo (+vida,adelantar 2 turnos,invertir debuffos(yanfly Topsy-Turvy))
+	31- Efecto adicional en curares (+vida,adelantar 2 turnos,invertir debuffos(yanfly Topsy-Turvy))
 16- Medicamentos (Salvaguarda)
 41- Salvaguarda pasiva

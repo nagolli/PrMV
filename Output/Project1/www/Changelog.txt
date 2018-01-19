@@ -1,0 +1,11 @@
+0.2
+-Añadido piso 4
+-Añadida Charlotte, la curandera
+-Añadido Roboute, el maestro de armas
+-Correccion en set petreo
+-Añadidas 2 nuevas esencias
+-Mejoradas las esencias elementales, el slot de las runas
+-Añadido set del caballero
+-Añadido un nuevo tier a las tiendas
+-Cambios menores gráficos en el tercer piso
+-Corregidas pociones porcentuales
